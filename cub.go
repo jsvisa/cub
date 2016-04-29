@@ -80,7 +80,7 @@ func backupToLocal() {
 			i++
 		}
 	}
-	if data, err := json.MarshalIndent(output, "", "    "); err == nil {
+	if data, err := json.MarshalIndent(output[0:i], "", "    "); err == nil {
 		if file, err := os.Create(*dump); err == nil {
 			file.Write(data)
 			fmt.Printf("Backup to local '%s' success!\n", *dump)
